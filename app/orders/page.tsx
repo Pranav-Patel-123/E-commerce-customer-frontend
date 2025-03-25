@@ -44,7 +44,7 @@ const OrdersPage = () => {
 
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`${API_URL}/orders?customer_id=${storedCustomerId}`)
+        const response = await axios.get(`${API_URL}/orders/customer/?customer_id=${storedCustomerId}`)
         if (response.status === 200) {
           const sortedOrders = response.data.sort(
             (a: Order, b: Order) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
